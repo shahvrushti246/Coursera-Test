@@ -1,0 +1,191 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+    
+    color: black;
+    border: none;
+}
+
+body {
+	
+	font-family: 'Hammersmith One', sans-serif;
+    background-color: white;
+}
+
+.navbar-toggle {
+    background-color: gray;
+    float: right;
+}
+
+.navbar-toggle:hover {
+    box-shadow: 1px 1px 1px black;
+    background-color: gray !important;
+}
+
+.navbar-brand {
+    margin: 0;
+	height: auto;
+	padding: 0px;
+    background-color: gray;
+     
+}
+
+.navbar-brand h1 {
+    color: black !important;
+}
+
+
+#brandname {
+	padding: 10px;
+	font-size: 50px;
+	color: black;
+	font-weight: bold;
+    height: 0px;
+    width: auto;
+    margin-top: 0px;
+   
+}
+
+.navbar-header a:hover {
+ 	text-decoration: none;
+}
+
+#nav-list a {
+    clear: both;
+    border: 1px solid black;
+    float: right;
+    position: relative;
+    margin: 15px 0px 0px 0px;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    background-color: white;
+	color: black;
+	font-size: 1em;
+}
+
+#nav-list a:hover {
+    color: darkgoldenrod;
+    text-shadow: 1px 1px 1px black;
+    background-color: white;
+}
+
+#collapsable-nav {
+    background-color: gray;
+    border: none;
+}
+
+#header-nav .navbar-header button.navbar-toggle {
+    clear: both;
+    bottom: 12px;
+}
+
+.navbar-header button.navbar-toggle, .navbar-header .icon-bar {
+	border: 1px solid black;
+}
+
+.section-item {
+    font-size: 10px;
+	margin: 15px;
+	height: auto;
+    background-color: gray;
+    
+}
+
+#page-title {
+	font-size: 35px;
+	font-weight: bold;
+	color: black;
+    background-color: white;
+}
+
+#chicken, #beef, #sushi {
+	font-size: 1em;
+    text-shadow: 1px 1px 1px black;
+	color: black;
+}
+
+p{
+    font-size: 15px;
+}
+
+#main-content {
+	margin: auto;
+	padding: 0px 0px 2px 0px;
+}
+
+
+
+
+
+
+/********** XSmall devices only (xs) **********/
+@media (max-width: 767px) {
+	/*navbar header*/
+	#header-h1 { /* Logo name */
+	    padding: 10px;
+	     /* 1vw = 1% of viewport width */
+	}
+
+	/*navbar toogle*/
+	#header-nav .navbar-header button.navbar-toggle {
+    	margin-top: -15px;
+    }	
+	#collapsable-nav {
+		background-color: white;
+	}
+
+	/*main content*/
+	#page-title {
+		font-size: 25px;
+	}
+	#chicken, #beef, #sushi {
+		font-size: 1em;
+        
+	}
+	p {
+            font-weight: normal;
+		font-size: 15px;
+		padding: 12px;
+	}
+	#main-content .section-item {
+		margin: 25px;
+	}
+}
+
+/********** Super extra small devices only (e.g., iPhone 4) **********/
+@media (max-width: 479px) {
+	/*navbar header*/
+	.navbar-brand
+        {
+            width:100%;
+            background-color: gary;
+        }
+	/*navbar toogle & list*/
+	#collapsable-nav {
+            
+	}
+    
+	#header-nav .navbar-header button.navbar-toggle {
+    	margin-top: -10px;
+    }	
+	#nav-list a {
+		font-size: 1em;
+	}
+
+	/*main content*/
+	#page-title {
+		font-size: 25px;
+	}
+	#chicken, #beef, #sushi {
+		font-size: 1em;
+	}
+	p {
+		font-size: 10px;
+		padding: 10px;
+	}
+	#main-content .section-item {
+		margin: 25px;
+	}
+}
