@@ -1,3 +1,5 @@
+/* global $ajaxUtils */
+
 $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 
   // Same as document.querySelector("#navbarToggle").addEventListener("blur",...
@@ -13,15 +15,15 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 
 var dc = {};
 
-var homeHtmlUrl = "/Front-End/Assignment/module5-solution/snippets/home-snippet.html";
+var homeHtmlUrl = "/Coursera-Test/site/Assignment/Assignment 5/Snippets/home-snippet.html";
 var allCategoriesUrl =
   "https://davids-restaurant.herokuapp.com/categories.json";
-var categoriesTitleHtml = "/Front-End/Assignment/module5-solution/snippets/categories-title-snippet.html";
-var categoryHtml = "/Front-End/Assignment/module5-solution/snippets/category-snippet.html";
+var categoriesTitleHtml = "/Coursera-Test/site/Assignment/Assignment 5/Snippets/categories-title-snippet.html";
+var categoryHtml = "/Coursera-Test/site/Assignment/Assignment 5/Snippets/category-snippet.html";
 var menuItemsUrl =
   "https://davids-restaurant.herokuapp.com/menu_items.json?category=";
-var menuItemsTitleHtml = "/Front-End/Assignment/module5-solution/snippets/menu-items-title.html";
-var menuItemHtml = "/Front-End/Assignment/module5-solution/snippets/menu-item.html";
+var menuItemsTitleHtml = "/Coursera-Test/site/Assignment/Assignment 5/Snippets/menu-items-title.html";
+var menuItemHtml = "/Coursera-Test/site/Assignment/Assignment 5/Snippets/menu-item.html";
 
 // Convenience function for inserting innerHTML for 'select'
 var insertHtml = function (selector, html) {
@@ -43,7 +45,7 @@ var insertProperty = function (string, propName, propValue) {
   string = string
     .replace(new RegExp(propToReplace, "g"), propValue);
   return string;
-};
+}
 
 // Remove the class 'active' from home and switch to Menu button
 var switchMenuToActive = function () {
@@ -54,7 +56,7 @@ var switchMenuToActive = function () {
 
   // Add 'active' to menu button if not already there
   classes = document.querySelector("#navMenuButton").className;
-  if (classes.indexOf("active") === -1) {
+  if (classes.indexOf("active") == -1) {
     classes += " active";
     document.querySelector("#navMenuButton").className = classes;
   }
@@ -82,9 +84,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
 // On first load, show home view
 showLoading("#main-content");
 $ajaxUtils.sendGetRequest(
+
   allCategoriesUrl,
-   buildAndShowHomeHTML,// ***** <---- TODO: STEP 1: Substitute [...] ******
-  true); // Explicitly setting the flag to get JSON from server processed into an object literal
+  buildAndShowHomeHTML, // ***** <---- TODO: STEP 1: Substitute [...] ******
+  true); // Explicitely setting the flag to get JSON from server processed into an object literal
 });
 // *** finish **
 
@@ -101,9 +104,8 @@ function buildAndShowHomeHTML (categories) {
       // TODO: STEP 2: Here, call chooseRandomCategory, passing it retrieved 'categories'
       // Pay attention to what type of data that function returns vs what the chosenCategoryShortName
       // variable's name implies it expects.
+
       var chosenCategoryShortName = chooseRandomCategory(categories).short_name;
-      chosenCategoryShortName = "'" + chosenCategoryShortName + "'";
-      console.log(chosenCategoryShortName);
 
       // TODO: STEP 3: Substitute {{randomCategoryShortName}} in the home html snippet with the
       // chosen category from STEP 2. Use existing insertProperty function for that purpose.
@@ -116,14 +118,17 @@ function buildAndShowHomeHTML (categories) {
       // Hint: you need to surround the chosen category short name with something before inserting
       // it into the home html snippet.
       //
+
+      chosenCategoryShortName = "'" + chosenCategoryShortName + "'";
       var homeHtmlToInsertIntoMainPage = insertProperty(homeHtml, "randomCategoryShortName", chosenCategoryShortName);
 
 
       // TODO: STEP 4: Insert the the produced HTML in STEP 3 into the main page
       // Use the existing insertHtml function for that purpose. Look through this code for an example
       // of how to do that.
-      insertHtml("#main-content", homeHtmlToInsertIntoMainPage);
+      // ....
 
+      insertHtml("#main-content", homeHtmlToInsertIntoMainPage);
     },
     false); // False here because we are getting just regular HTML from the server, so no need to process JSON.
 }
@@ -296,7 +301,7 @@ function buildMenuItemsViewHtml(categoryMenuItems,
                      menuItems[i].description);
 
     // Add clearfix after every second menu item
-    if (i % 2 !== 0) {
+    if (i % 2 != 0) {
       html +=
         "<div class='clearfix visible-lg-block visible-md-block'></div>";
     }
@@ -315,7 +320,7 @@ function insertItemPrice(html,
                          priceValue) {
   // If not specified, replace with empty string
   if (!priceValue) {
-    return insertProperty(html, pricePropName, "");
+    return insertProperty(html, pricePropName, "");;
   }
 
   priceValue = "$" + priceValue.toFixed(2);
